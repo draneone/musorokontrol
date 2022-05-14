@@ -1,0 +1,4 @@
+python detect.py --source test.avi --weights ./publicwasteanapa-1/weights/best.pt --save-txt
+
+
+https://medium.com/swlh/run-python-script-from-node-js-and-send-data-to-browser-15677fcf199f
