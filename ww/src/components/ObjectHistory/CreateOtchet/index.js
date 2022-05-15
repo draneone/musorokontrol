@@ -1,7 +1,6 @@
 import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, TextField } from "@mui/material"
 import { getRandomInt } from "../../../utils/getRandomInt"
 
-
 function CreateOtchet({ open, handleClose }) {
   return (
     <Dialog open={open} onClose={handleClose}>
@@ -10,7 +9,7 @@ function CreateOtchet({ open, handleClose }) {
         <DialogContentText>
           Выберите даты для создания отчёта.
         </DialogContentText>
-
+        
       </DialogContent>
       <DialogActions>
         <Button onClick={handleClose}>Отмена</Button>
