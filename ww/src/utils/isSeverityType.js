@@ -1,10 +1,10 @@
-import { EMPTY, FULL, OVERFLOW } from "../constants"
+import { EMPTY, FULL, OVERFLOW, JANITOR } from "../constants"
 
 
 const isSeverityType = (status = []) => {
   switch (status.length) {
     case 1:
-      if (status[0] === EMPTY) {
+      if (status[0] === EMPTY || status[0] === JANITOR) {
         return 'success'
       } else if (status[0] === FULL || status[0] === OVERFLOW) {
         return 'warning'

@@ -1,4 +1,4 @@
-import { EMPTY, FULL, OVERFLOW } from "../constants"
+import { EMPTY, FULL, OVERFLOW, JANITOR } from "../constants"
 
 const getChipColor = (statusString) => {
   switch (statusString) {
@@ -8,6 +8,8 @@ const getChipColor = (statusString) => {
       return 'warning'
     case OVERFLOW:
       return 'error'
+    case JANITOR:
+      return 'success'
     default:
       return 'default'
   }

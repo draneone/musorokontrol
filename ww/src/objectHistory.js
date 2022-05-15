@@ -1,4 +1,4 @@
-import { EMPTY, FULL, OVERFLOW, URNA } from "./constants";
+import { EMPTY, FULL, OVERFLOW, URNA, JANITOR } from "./constants";
 
 // objectHistory1
 import objectHistory1img1 from './images/objectHistory/Camera1/1.jpg'
@@ -26,7 +26,7 @@ export const objectHistory1 = [
   {
     type: URNA,
     adress: 'Калинина - В.Набережная',
-    status: [EMPTY, OVERFLOW],
+    status: [JANITOR],
     dateTime: new Date().toString(),
     geometry: [44.889824, 37.297312],
     img: objectHistory1img2

@@ -1,4 +1,4 @@
-import { EMPTY, FULL, OVERFLOW, URNA } from "./constants";
+import { EMPTY, FULL, OVERFLOW, URNA, JANITOR } from "./constants";
 
 import camera1 from './components/Cameras/images/1.jpg'
 import camera2 from './components/Cameras/images/2.jpg'
