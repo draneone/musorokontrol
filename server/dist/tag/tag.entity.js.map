@@ -1,0 +1,1 @@
+{"version":3,"file":"tag.entity.js","sourceRoot":"","sources":["../../src/tag/tag.entity.ts"],"names":[],"mappings":";;;;;;;;;;;;AAAA,qCAAiE;AAKjE,IAAa,SAAS,GAAtB,MAAa,SAAS;CASrB,CAAA;AAPC;IADC,IAAA,gCAAsB,GAAE;;qCACd;AAGX;IADC,IAAA,gBAAM,GAAE;;uCACI;AAGb;IADC,IAAA,gBAAM,GAAE;;0CACO;AARL,SAAS;IAHrB,IAAA,gBAAM,EAAC;QACN,IAAI,EAAE,MAAM;KACb,CAAC;GACW,SAAS,CASrB;AATY,8BAAS"}
