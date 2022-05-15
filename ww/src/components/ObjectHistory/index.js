@@ -1,8 +1,10 @@
-import { Box } from "@mui/material"
+import { Box, Container } from "@mui/material"
 
 function ObjectHistory() {
   return (
-    <Box>hdfhfhfhfhfhhfhfh</Box>
+    <Container maxWidth='sm'>
+
+    </Container>
   )
 }
 

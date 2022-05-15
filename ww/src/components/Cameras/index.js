@@ -32,6 +32,8 @@ function Cameras() {
                     sx={{ color: 'rgba(255, 255, 255, 0.54)' }}
                     aria-label={`info about ${item.title}`}
                   >
+                    
+                     
                     <CachedIcon />
                   </IconButton>
                 </Tooltip>
