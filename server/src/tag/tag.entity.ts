@@ -9,4 +9,7 @@ export class TagEntity {
 
   @Column()
   name: string;
+
+  @Column()
+  tagname: string;
 }

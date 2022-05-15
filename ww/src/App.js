@@ -6,6 +6,7 @@ import Cameras from "./components/Cameras";
 import MyMap from "./components/Map";
 import MyAppBar from "./components/MyAppBar";
 import MyDrawer from "./components/MyDrawer";
+import ObjectHistory from "./components/ObjectHistory";
 import Objects from "./components/Objects";
 import Filters from "./components/Objects/Filters";
 
@@ -19,6 +20,10 @@ function App() {
   const [page, setPage] = useState('map')
   const setCurrentPage = (page) => {
     setPage(page)
+  }
+  // История объекта
+  const handleObjectHistory = (i) => {
+    setCurrentPage('objectHistory')
   }
 
   // Открытие закрытие фильтра объектов
@@ -48,6 +53,19 @@ function App() {
     setChecked(newChecked)
   }
 
+  // ya state
+  const [mapState, setMapState] = useState({
+    center: [44.89427, 37.31689],
+    zoom: 15
+  })
+  const handleOpenMap = (center) => {
+    setMapState({
+      center,
+      zoom: 18
+    })
+    setCurrentPage('map')
+  }
+
   return (
     <Box display='flex' height='100vh'>
       <MyAppBar
@@ -64,14 +82,30 @@ function App() {
       >
         {/* Страница Карты */}
         {
-          page === 'map' ? <MyMap width={width} objects={objects} /> : null
+          page === 'map' ? (
+            <MyMap
+              width={width}
+              objects={objects}
+              mapState={mapState}
+              handleObjectHistory={handleObjectHistory}
+            />
+          ) : null
         }
 
         {/* Страница объектов */}
         {
           page === 'objects' ? (
             <Objects
-              objects={objects} />
+              objects={objects}
+              handleOpenMap={handleOpenMap}
+              handleObjectHistory={handleObjectHistory}
+            />
+          ) : null
+        }
+        {/* Страница истории объекта */}
+        {
+          page === 'objectHistory' ? (
+            <ObjectHistory />
           ) : null
         }
 

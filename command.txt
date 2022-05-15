@@ -2,3 +2,11 @@ python detect.py --source test.avi --weights ./publicwasteanapa-1/weights/best.p
 
 
 https://medium.com/swlh/run-python-script-from-node-js-and-send-data-to-browser-15677fcf199f
+
+FULL
+JANITOR
+NONGABARIT
+TRASHTRUCK
+EMPTY
+HUMAN
+URNA

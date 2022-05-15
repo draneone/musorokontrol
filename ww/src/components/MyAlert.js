@@ -1,4 +1,4 @@
-import { Box, Chip, Paper, Typography } from "@mui/material";
+import { Box, Chip, Paper, Tooltip, Typography } from "@mui/material";
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 
 
@@ -9,12 +9,23 @@ import getMyalertBackgound from "../utils/getMyalertBackgound";
 
 moment.locale('ru')
 
-function MyAlert({ type, adress, status = [], dateTime, severity, img }) {
+function MyAlert({
+  type,
+  adress,
+  status = [],
+  dateTime,
+  severity,
+  img,
+  i,
+  handleOpenBackdrop,
+  geometry,
+  handleOpenMap,
+  handleObjectHistory
+}) {
   return <Box
     display='flex'
     flexDirection='row'
     component={Paper}
-    // variant="outlined"
     mb={2}
     p={2}
     sx={{
@@ -30,25 +41,52 @@ function MyAlert({ type, adress, status = [], dateTime, severity, img }) {
       alignItems='center'
       mr={1.5}
     >
-      <Box display='flex' component={Paper} sx={{ p: 0.3, borderRadius: 0.7, backgroundColor: '#fff' }}>
+      <Box
+        display='flex'
+        component={Paper}
+        sx={{ p: 0.3, borderRadius: 0.7, backgroundColor: '#fff', cursor: 'zoom-in' }}
+        onClick={() => handleOpenBackdrop(i)}
+      >
         <img width='120' height='80' src={img} />
       </Box>
     </Box>
 
     <Box display='flex' flex={1} flexDirection='column'>
       <Box display='flex' flexDirection='row'>
-        <Typography variant="h5" mb={1} mt={0}>{type}</Typography>
+        <Box
+          sx={{
+            cursor: 'pointer',
+            ':hover': {
+              color: (theme) => theme.palette.primary.main
+            }
+          }}
+          onClick={() => handleObjectHistory(i)}
+        >
+          <Typography variant="h5" mb={1} mt={0}>{type}</Typography>
+        </Box>
+
+
         <Box flex={1} />
-        <Box>{moment(dateTime).format('MM.D.YYYY h:mm').toString()}</Box>
+
+        <Box display='flex' alignItems='center'>
+          {moment(dateTime).format('MM.D.YYYY h:mm').toString()}
+        </Box>
       </Box>
+
 
       <Box display='flex'
         sx={{
-          cursor: 'pointer'
+          cursor: 'pointer',
+          ':hover': {
+            color: (theme) => theme.palette.primary.main
+          }
         }}
+        onClick={() => handleOpenMap(geometry)}
       >
-        <Box alignItems='center'><LocationOnIcon fontSize='small' /></Box>
+
+        <Box alignItems='center'><LocationOnIcon /></Box>
         <Typography>{adress}</Typography>
+
       </Box>
 
 
@@ -59,7 +97,6 @@ function MyAlert({ type, adress, status = [], dateTime, severity, img }) {
             color={getChipColor(string)}
             size='small'
             sx={{ mr: 1 }}
-          // variant='outlined'
           />
         ))}
       </Box>

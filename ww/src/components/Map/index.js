@@ -3,22 +3,18 @@ import { YMaps, Map, Placemark } from 'react-yandex-maps'
 import getSeverityPlacemark from '../../utils/getSeverityPlacemark'
 import isSeverityType from '../../utils/isSeverityType'
 
-function MyMap({ width, objects }) {
+function MyMap({ width, objects, mapState, handleObjectHistory }) {
 
   return (
     <YMaps >
-      <Map width={width} height='100%' defaultState={{
-        center: [44.89427, 37.31689],
-        zoom: 15
-      }}>
-        {objects.map(({ type, adress, img, geometry, status }) => (
+      <Map width={width} height='100%' defaultState={mapState}>
+        {objects.map(({ type, adress, img, geometry, status }, i) => (
           <Placemark geometry={geometry}
             properties={{
               balloonContent: `
-              <p style='margin: 0'><b>${type}</b></p>
-              <img width='180' height='120' src=${img} />
-              <p style='margin: 0'>${adress}</p>
-
+                <p style='margin: 0' onClick="handleObjectHistory(i)"><b>${type}</b></p>
+                <img width='180' height='120' src=${img} />
+                <p style='margin: 0'>${adress}</p>
               `,
             }}
             options={{

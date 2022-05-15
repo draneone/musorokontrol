@@ -1,32 +1,28 @@
-import { MiddlewareConsumer, Module, RequestMethod } from '@nestjs/common';
+import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { ArticleModule } from './article/article.module';
-import { MainResortModule } from './mainResort/mainResort.module';
 import ormconfig from './ormconfig';
-import { ResortModule } from './resort/resort.module';
 import { TagModule } from './tag/tag.module';
-import { AuthMiddleware } from './user/middleware/auth.middleware';
-import { UserModule } from './user/user.module';
+import { TochkaController } from './tochka/tochka.controller';
+import { TochkaModule } from './tochka/tochka.module';
+import { TochkaService } from './tochka/tochka.service';
+import { ScreentochkaController } from './screentochka/screentochka.controller';
+import { ScreentochkaService } from './screentochka/screentochka.service';
+import { ScreentochkaModule } from './screentochka/screentochka.module';
+import { TypetochkaController } from './typetochka/typetochka.controller';
+import { TypetochkaService } from './typetochka/typetochka.service';
+import { TypetochkaModule } from './typetochka/typetochka.module';
 
 @Module({
   imports: [
     TypeOrmModule.forRoot(ormconfig),
     TagModule,
-    UserModule,
-    ArticleModule,
-    MainResortModule,
-    ResortModule,
+    TochkaModule,
+    ScreentochkaModule,
+    TypetochkaModule,
   ],
-  controllers: [AppController],
-  providers: [AppService],
+  controllers: [AppController, TochkaController, ScreentochkaController, TypetochkaController],
+  providers: [AppService, TochkaService, ScreentochkaService, TypetochkaService],
 })
-export class AppModule {
-  configure(consumer: MiddlewareConsumer) {
-    consumer.apply(AuthMiddleware).forRoutes({
-      path: '*',
-      method: RequestMethod.ALL,
-    });
-  }
-}
+export class AppModule { }
