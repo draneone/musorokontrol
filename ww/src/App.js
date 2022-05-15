@@ -11,6 +11,19 @@ import Objects from "./components/Objects";
 import Filters from "./components/Objects/Filters";
 
 import objects from "./objects";
+import {
+  objectHistory1,
+  objectHistory2,
+  objectHistory3,
+  objectHistory4
+} from './objectHistory'
+
+const objectHistory = [
+  objectHistory1,
+  objectHistory2,
+  objectHistory3,
+  objectHistory4
+]
 
 const drawerWidth = 240
 
@@ -21,8 +34,10 @@ function App() {
   const setCurrentPage = (page) => {
     setPage(page)
   }
+  const [ikey, setIkey] = useState(0)
   // История объекта
   const handleObjectHistory = (i) => {
+    setIkey(i)
     setCurrentPage('objectHistory')
   }
 
@@ -105,7 +120,11 @@ function App() {
         {/* Страница истории объекта */}
         {
           page === 'objectHistory' ? (
-            <ObjectHistory />
+            <ObjectHistory
+              objectHistory={objectHistory[ikey]}
+              handleOpenMap={handleOpenMap}
+              handleObjectHistory={handleObjectHistory}
+            />
           ) : null
         }
 

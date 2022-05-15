@@ -7,9 +7,9 @@ import camera4 from './components/Cameras/images/4.jpg'
 
 const objects = [
   {
-    type: URNA,
+    type: URNA,//type
     adress: 'Калинина - В.Набережная',
-    status: [EMPTY],
+    status: [EMPTY],//tag
     dateTime: new Date().toString(),
     geometry: [44.889824, 37.297312],
     img: camera1
